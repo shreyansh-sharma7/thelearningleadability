@@ -4,50 +4,78 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>The Learning LeadAbility</title>
-  <meta name="description" content="Learning that builds the ability to lead.">
+  <meta name="description" content="Learn. Lead. Lift.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@300;400;500;800&display=swap" rel="stylesheet">
   <style>
+    :root {
+      --navy: #0a3350;
+      --gold: #e0a02a;
+    }
     * { box-sizing: border-box; }
     html, body { height: 100%; margin: 0; }
     body {
       display: flex;
       flex-direction: column;
+      align-items: center;
       justify-content: center;
-      padding: 32px 24px;
-      background: #f5f2ec;
-      color: #171717;
-      font-family: "Inter", system-ui, sans-serif;
+      padding: 32px 20px;
+      background: #fff;
+      color: var(--navy);
+      font-family: "Archivo", system-ui, sans-serif;
     }
-    main { width: 100%; max-width: 720px; margin: 0 auto; }
-    h1 {
-      margin: 0;
-      font-family: "Instrument Serif", Georgia, serif;
+    .logo { margin: 0; font-size: clamp(3.2rem, 15vw, 8rem); line-height: 0.95; }
+    .logo > span { display: block; }
+    .the {
+      font-weight: 300;
+      font-size: 0.72em;
+      letter-spacing: -0.02em;
+      padding-left: 0.12em;
+    }
+    .lead { font-weight: 800; letter-spacing: -0.045em; }
+    .a { position: relative; display: inline-block; }
+    .a::after {
+      content: "";
+      position: absolute;
+      left: 0.3em;
+      top: 0.62em;
+      width: 0.34em;
+      height: 0.055em;
+      background: var(--gold);
+      border-radius: 1px;
+    }
+    .pillars {
+      margin: 0.9em 0 0;
+      padding-left: 0.3em;
+      font-size: clamp(0.85rem, 3.4vw, 1.5rem);
       font-weight: 400;
-      font-size: clamp(2.8rem, 10vw, 5.5rem);
-      line-height: 1;
-      letter-spacing: -0.01em;
+      letter-spacing: 0.42em;
+      white-space: nowrap;
     }
-    p { margin: 24px 0 40px; font-size: 1.125rem; color: #555; }
-    a {
-      display: inline-block;
-      padding: 14px 26px;
-      border: 1px solid #171717;
-      border-radius: 999px;
-      color: #171717;
-      text-decoration: none;
+    .dot { color: var(--gold); margin: 0 0.5em 0 0.1em; }
+    .profile {
+      margin-top: 72px;
+      color: var(--navy);
+      font-size: 0.95rem;
       font-weight: 500;
-      transition: background .2s, color .2s;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      text-decoration: none;
+      border-bottom: 2px solid var(--gold);
+      padding-bottom: 4px;
     }
-    a:hover { background: #171717; color: #f5f2ec; }
+    .profile:hover { color: var(--gold); }
   </style>
 </head>
 <body>
   <main>
-    <h1>The Learning LeadAbility</h1>
-    <p>Learning that builds the ability to lead.</p>
-    <a href="./about">Company profile &rarr;</a>
+    <h1 class="logo">
+      <span class="the">The Learning</span>
+      <span class="lead">Lead<span class="a">A</span>bility</span>
+    </h1>
+    <p class="pillars">LEARN <span class="dot">&bull;</span>LEAD <span class="dot">&bull;</span>LIFT</p>
   </main>
+  <a class="profile" href="./about">Company profile &rarr;</a>
 </body>
 </html>

@@ -1,6 +1,6 @@
 # The Learning LeadAbility — website
 
-Static site for thelearningleadability.org, hosted on Cloudflare Pages.
+Static site for thelearningleadability.org, hosted on Cloudflare Workers (static assets).
 
 - `public/` — everything that gets deployed
 - `public/_redirects` — controls where the QR code goes
@@ -14,7 +14,7 @@ Static site for thelearningleadability.org, hosted on Cloudflare Pages.
     npm install
     npm run dev
 
-Then open http://localhost:8788 (and http://localhost:8788/about for the PDF).
+Then open http://localhost:8787 (and http://localhost:8787/about for the PDF).
 
 ## Updating the PDF (QR code never changes)
 
@@ -27,14 +27,12 @@ Keep the redirect as `302`. A `301` gets cached by phones and they'd keep openin
 ## First-time deploy
 
 1. Push this repo to GitHub.
-2. Cloudflare dashboard → Workers & Pages → Create → Pages → Connect to Git → pick the repo.
-   Build command: none. Build output directory: `public`.
-3. Add the domain to Cloudflare: dashboard → Add a domain → `thelearningleadability.org`
-   (Free plan). Cloudflare imports the existing DNS records — check the MX/TXT
-   (email) records came across.
-4. At Squarespace → Domains → thelearningleadability.org → DNS → Nameservers →
-   use custom nameservers, and enter the two Cloudflare gives you. Takes up to a few hours.
-5. Once the domain is active in Cloudflare: Pages project → Custom domains → add
+2. Cloudflare dashboard → Workers & Pages → Create → Import a repository → pick the repo.
+   Deploy command: `npx wrangler deploy` (the default). `wrangler.toml` points it at `public/`.
+   The project name in Cloudflare must match `name` in `wrangler.toml`.
+3. Domain is on Cloudflare DNS (nameservers changed at Squarespace → Domains → DNS → Nameservers).
+   Keep the Google MX/SPF/DKIM records; remove any old Squarespace A/CNAME records.
+4. Worker → Settings → Domains & Routes → Add → Custom domain:
    `thelearningleadability.org` and `www.thelearningleadability.org`.
 
 Test: scan `qr/about-qr.png` with a phone — it should open the PDF.

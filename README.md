@@ -5,7 +5,6 @@ Static site for thelearningleadability.org, hosted on Netlify.
 - `public/` — everything that gets deployed
 - `public/_redirects` — controls where the QR code goes
 - `qr/` — the QR code (points to https://thelearningleadability.org/about)
-- `source/` — original Pages file for the company profile (not deployed)
 
 ## Updating the PDF (QR code never changes)
 

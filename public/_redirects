@@ -1,0 +1,3 @@
+# The QR code points at /about. To swap the PDF, upload the new file to
+# public/files/ and change the target below. Keep 302 so phones don't cache it.
+/about      /files/tll-company-profile.pdf   302

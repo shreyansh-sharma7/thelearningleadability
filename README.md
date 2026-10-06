@@ -1,38 +1,21 @@
-# The Learning LeadAbility — website
+# The Learning LeadAbility
 
-Static site for thelearningleadability.org, hosted on Cloudflare Workers (static assets).
+**Learn • Lead • Lift**
 
-- `public/` — everything that gets deployed
-- `public/_redirects` — controls where the QR code goes
-- `qr/` — the QR code (points to https://thelearningleadability.org/about)
+The Learning LeadAbility (TLL) is a learning and development organisation focused on enhancing human capabilities through experiential learning.
 
-## Run locally
+We believe the ability to lead isn't defined by a role or title. It is the ability to lead oneself, influence others and create meaningful impact wherever one lives, works and serves.
 
-`_redirects` is applied by the server, so it won't work if you open
-`index.html` directly. Run the Cloudflare dev server instead:
+- **Learn**: build yourself
+- **Lead**: influence others
+- **Lift**: elevate the world around you
 
-    npm install
-    npm run dev
+TLL designs and facilitates learning journeys for corporates, educational institutions and social impact organisations.
 
-Then open http://localhost:8787 (and http://localhost:8787/about for the PDF).
+🌐 [thelearningleadability.org](https://thelearningleadability.org)
 
-## Updating the PDF (QR code never changes)
+## About this repo
 
-1. Put the new PDF in `public/files/`, e.g. `tll-company-profile-2027.pdf`
-2. Edit `public/_redirects` so `/about` points to the new file
-3. Commit and push — Cloudflare redeploys automatically
+This is the source for [thelearningleadability.org](https://thelearningleadability.org). It's a simple static site hosted on Cloudflare.
 
-Keep the redirect as `302`. A `301` gets cached by phones and they'd keep opening the old PDF.
-
-## First-time deploy
-
-1. Push this repo to GitHub.
-2. Cloudflare dashboard → Workers & Pages → Create → Import a repository → pick the repo.
-   Deploy command: `npx wrangler deploy` (the default). `wrangler.toml` points it at `public/`.
-   The project name in Cloudflare must match `name` in `wrangler.toml`.
-3. Domain is on Cloudflare DNS (nameservers changed at Squarespace → Domains → DNS → Nameservers).
-   Keep the Google MX/SPF/DKIM records; remove any old Squarespace A/CNAME records.
-4. Worker → Settings → Domains & Routes → Add → Custom domain:
-   `thelearningleadability.org` and `www.thelearningleadability.org`.
-
-Test: scan `qr/about-qr.png` with a phone — it should open the PDF.
+To run it locally: `npm install`, then `npm run dev`.
